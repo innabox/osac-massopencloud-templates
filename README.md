@@ -16,7 +16,7 @@ These templates are designed to work with the OSAC service infrastructure on the
 - Access to a OSAC-enabled OpenShift environment
 - Required Ansible collections:
   - `osac.templates`
-  - `cloudkit.service`
+  - `osac.service`
   - `massopencloud.esi`
   - `kubernetes.core`
 
@@ -59,14 +59,14 @@ Deploy virtual machines on OpenShift Virtualization with automated floating IP a
 - name: Deploy a virtual machine
   hosts: localhost
   tasks:
-    - name: Create VM
+    - name: Create ComputeInstance
       ansible.builtin.include_role:
         name: osac.massopencloud.ocp_virt_vm
         tasks_from: create
       vars:
-        vm_order:
+        compute_instance:
           metadata:
-            name: my-vm
+            name: my-compute-instance
             namespace: default
         template_parameters:
           cpu_cores: 4
@@ -193,9 +193,9 @@ See [LICENSE](LICENSE) for full license text.
 
 ## Links
 
-- **Repository**: http://github.com/innabox/osac-massopencloud-templates
-- **Issues**: http://github.com/innabox/issues/issues
-- **Documentation**: http://github.com/innabox/osac-massopencloud-templates/README.md
+- **Repository**: http://github.com/osac-project/osac-massopencloud-templates
+- **Issues**: http://github.com/osac-project/issues/issues
+- **Documentation**: http://github.com/osac-project/osac-massopencloud-templates/README.md
 
 ## Contributing
 
